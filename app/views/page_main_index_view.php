@@ -5,7 +5,7 @@
 	<input type="text" name="name" placeholder="name"/>
 	<input type="text" name="text" placeholder="text"/>
 	<input type="text" name="date_of_changes" placeholder="date_of_changes"/>
-	<input type="text" name="picture" placeholder="picture"/>
+	<input type="file" multiple="multiple" accept=".txt,image/*"/>
 	<input type="submit" value="add"/>
     </form>
 </div>
@@ -15,7 +15,7 @@
 	<input type="text" name="name" placeholder="name"/>
 	<input type="text" name="text" placeholder="text"/>
 	<input type="text" name="date_of_changes" placeholder="date_of_changes"/>
-	<input type="text" name="picture" placeholder="picture"/>
+	<input type="file" multiple="multiple" accept=".txt,image/*"/>
 	<input type="submit" value="edit"/>
     </form>
 </div>

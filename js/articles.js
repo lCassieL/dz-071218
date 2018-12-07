@@ -1,4 +1,10 @@
 getArticles();
+
+var files;
+$('input[type=file]').change(function(){
+    files = this.files;
+});
+
 $("#btn").click(function () {
     $('div#modalWindow').css('display', 'block');
 });
