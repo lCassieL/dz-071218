@@ -24,11 +24,25 @@ class ApiController extends Controller
             $this->model->addArticle($name, $text, $date_of_changes, $picture);
 	}
     }
+
     public function action_delete(){
 	$id = filter_input(INPUT_POST, 'id');
 	if(!is_null($id)){
 	    $this->model = new ApiModel();
             $this->model->deleteArticle($id);
+	}
+    }
+
+    public function action_edit()
+    {
+        $id = filter_input(INPUT_POST, 'id');
+        $name = filter_input(INPUT_POST, 'name');
+        $text = filter_input(INPUT_POST, 'text');
+        $date_of_changes = filter_input(INPUT_POST, 'date_of_changes');
+        $picture = filter_input(INPUT_POST, 'picture');
+        if ($name !== null || $text !== null || $date_of_changes !== NULL || $picture !== NULL) {
+            $this->model = new ApiModel();
+            $this->model->editArticle($id, $name, $text, $date_of_changes, $picture);
 	}
     }
 

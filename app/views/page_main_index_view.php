@@ -11,7 +11,7 @@
 </div>
 
 <div id="modalWindowEdit">
-    <form id="add_article_form" method="post">
+    <form id="edit_article_form" method="post">
 	<input type="text" name="name" placeholder="name"/>
 	<input type="text" name="text" placeholder="text"/>
 	<input type="text" name="date_of_changes" placeholder="date_of_changes"/>

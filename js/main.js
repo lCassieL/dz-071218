@@ -33,6 +33,10 @@ function showArticles(articles) {
     });
 
     $("#list .edit").submit(function () {
+        $('#edit_article_form input[type="hidden"]').remove();
+        var id = $(this).find('input[type="hidden"]').val();
+        $("#edit_article_form").append('<input type="hidden" value="' + 
+        id + '">');
         $('div#modalWindowEdit').css('display', 'block');
         return false;
     });

@@ -16,9 +16,6 @@ class ApiModel extends Model {
     
     public function addArticle($name, $text, $date_of_changes, $picture){
         if($this->db->connect_errno===0){
-            echo 'ok';
-            // $query='INSERT INTO articles (name, text, date_of_changes, picture) 
-            // values ("'.'d'.'", "'.'d'.'", "'.'2018-12-08'.'", "'.'d'.'")';
             $query='INSERT INTO articles (name, text, date_of_changes, picture) 
             values ("'.$name.'", "'.$text.'", "'.$date_of_changes.'", "'.$picture.'")';
             $this->db->query($query);
@@ -32,8 +29,11 @@ class ApiModel extends Model {
         }
     }
 
-    public function editArticle($id){
-        
+    public function editArticle($id, $name, $text, $date_of_changes, $picture){
+        if($this->db->connect_errno===0){
+            $query = "UPDATE articles SET name = '".$name."', text = '".$text."', date_of_changes = '".$date_of_changes."', picture = '".$picture."' WHERE id = ".$id;
+            $this->db->query($query);
+        }
     }
 }
 
