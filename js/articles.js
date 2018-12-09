@@ -1,4 +1,4 @@
-//getArticles();
+getArticles();
 $("#btn").click(function () {
     $('div#modalWindow').css('display', 'block');
 });
@@ -44,32 +44,31 @@ $('#add_article_form').on('submit', function(e){
       data: formData,
       dataType: 'json',
       success: function(json){
-	  console.log('okjs2');
+        $("#articles").empty();
+	    getArticles();
         if(json){
-	    console.log('okjs3');
-//          $that.replaceWith(json);
-	  console.log('okjs4');
+         $that.replaceWith(json);
         }
-      },
-      error: function(jqXHR, exception)
-{
-if (jqXHR.status === 0) {
-alert('Not connect.\n Verify Network.'); //  не включен инет
-} else if (jqXHR.status === 404) {
-alert('Requested page not found. [404]'); // нет такой страницы
-} else if (jqXHR.status === 500) {
-alert('Internal Server Error [500].'); // нет сервера такого
-} else if (exception === 'parsererror') {
-// ошибка в коде при парсинге
-alert(jqXHR.responseText);
-} else if (exception === 'timeout') {
-alert('Time out error.'); // недождался ответа
-} else if (exception === 'abort') {
-alert('Ajax request aborted.'); // прервался на стороне сервера
-} else {
-alert('Uncaught Error.\n' + jqXHR.responseText); // не знает что это
-}
-} // error
+      }
+//       error: function(jqXHR, exception)
+// {
+// if (jqXHR.status === 0) {
+// alert('Not connect.\n Verify Network.'); //  не включен инет
+// } else if (jqXHR.status === 404) {
+// alert('Requested page not found. [404]'); // нет такой страницы
+// } else if (jqXHR.status === 500) {
+// alert('Internal Server Error [500].'); // нет сервера такого
+// } else if (exception === 'parsererror') {
+// // ошибка в коде при парсинге
+// alert(jqXHR.responseText);
+// } else if (exception === 'timeout') {
+// alert('Time out error.'); // недождался ответа
+// } else if (exception === 'abort') {
+// alert('Ajax request aborted.'); // прервался на стороне сервера
+// } else {
+// alert('Uncaught Error.\n' + jqXHR.responseText); // не знает что это
+// }
+// } // error
     });
   });
   });
