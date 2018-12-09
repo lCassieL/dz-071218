@@ -27,15 +27,10 @@ $("#btn").click(function () {
 //    return false;
 //
 //});
-$(function(){
-    console.log('okjs0');
 $('#add_article_form').on('submit', function(e){
     e.preventDefault();
-    console.log('okjs1');
     var $that = $(this),
     formData = new FormData($that.get(0)); // создаем новый экземпляр объекта и передаем ему нашу форму (*)
-    console.log(location.origin + '/api/add');
-    console.log(formData);
     $.ajax({
       url: location.origin + '/api/add',
       type: 'post',
@@ -44,11 +39,14 @@ $('#add_article_form').on('submit', function(e){
       data: formData,
       dataType: 'json',
       success: function(json){
-        $("#articles").empty();
-	    getArticles();
         if(json){
          $that.replaceWith(json);
         }
+      },
+      complete: function(){
+        $("#articles").empty();
+        $('div#modalWindow').css('display', 'none');
+        getArticles();
       }
 //       error: function(jqXHR, exception)
 // {
@@ -70,7 +68,6 @@ $('#add_article_form').on('submit', function(e){
 // }
 // } // error
     });
-  });
   });
 $("#edit_article_form").submit(function () {
     var
