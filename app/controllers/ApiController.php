@@ -15,11 +15,12 @@ class ApiController extends Controller
     public function action_add(){
        $name = filter_input(INPUT_POST, 'name');
        $text = filter_input(INPUT_POST, 'text');
+       $date_of_change = time();
        move_uploaded_file($_FILES['avatar']['tmp_name'], 'images/'.$_FILES['avatar']['name']);
        $picture = $_FILES['avatar']['name'];
        if ($name !== null || $text !== null || $picture !== NULL) {
            $this->model = new ApiModel();
-           $this->model->addArticle($name, $text, $picture);
+           $this->model->addArticle($name, $text, $picture, $date_of_change);
 	   }
 
     }

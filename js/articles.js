@@ -28,6 +28,10 @@ $('#add_article_form').on('submit', function(e){
       complete: function(){
         $("#articles").empty();
         $('div#modalWindow').css('display', 'none');
+//	$('#add_article_form').reset();
+//	$('#add_article_form .name').empty('');
+//	$('#add_article_form .text').empty('');
+        $("input[type=text],input[type=file], textarea").val("");
         getArticles();
       }
     });

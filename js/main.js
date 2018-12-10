@@ -1,11 +1,22 @@
 function showArticles(articles) {
     $('#articles').append('<ul id="list"></ul>');
     $(articles).each(function (i, article) {
+	var a = new Date(article.date_of_change*1000);
+	var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        var year = a.getFullYear();
+        var month = months[a.getMonth()];
+        var date = a.getDate();
+        var hour = a.getHours();
+        var min = a.getMinutes();
+        var sec = a.getSeconds();
+        var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+	
         $('#articles ul').append(
             '<li>' + 
             '<div>' + article.name + '</div>' + 
             '<div>' + article.text + '</div>' + 
             '<div><img src="images/'+article.picture + '" width="400" height="200"></div>' +
+	    '<div>' + time + '</div>' +
             '<form class="del" method="post"><input type="submit" value="del"/><input type="hidden" value="' + 
             article.id + '"></form>' +
             '<form class="edit" method="post"><input type="submit" value="edit"/><input type="hidden" value="' + 

@@ -3,7 +3,7 @@
 <div id="modalWindow">
     <form id="add_article_form" method="post" enctype="multipart/form-data">
         <label> Название статьи
-            <input type="text" name="name" placeholder="name"/>
+            <input type="text" name="name" size="50"/>
         </label>
         <label> Текст статьи
             <textarea name="text" cols="100" rows="20"></textarea>
