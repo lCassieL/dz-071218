@@ -6,7 +6,7 @@ function showArticles(articles) {
             article.name + ' ' + 
             article.text + ' ' + 
             article.date_of_changes + ' ' + 
-            '<img src="images/'+article.picture + '" width="400" height="200">' +
+            '<div><img src="images/'+article.picture + '" width="400" height="200"></div>' +
             '<form class="del" method="post"><input type="submit" value="del"/><input type="hidden" value="' + 
             article.id + '"></form>' +
             '<form class="edit" method="post"><input type="submit" value="edit"/><input type="hidden" value="' + 
