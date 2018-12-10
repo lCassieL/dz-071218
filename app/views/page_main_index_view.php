@@ -2,11 +2,17 @@
 <div id="articles"></div>
 <div id="modalWindow">
     <form id="add_article_form" method="post" enctype="multipart/form-data">
-	<input type="text" name="name" placeholder="name"/>
-	<input type="text" name="text" placeholder="text"/>
-	<input type="text" name="date_of_changes" placeholder="date_of_changes"/>
-	<input type="file" name="avatar" id="avatar"/>
+        <label> Название статьи
+            <input type="text" name="name" placeholder="name"/>
+        </label>
+        <label> Текст статьи
+            <textarea name="text" cols="100" rows="20"></textarea>
+        </label>
+        <label> Картинка
+            <input type="file" name="avatar" id="avatar"/>
+        </label>
 	<input type="submit" id="submit" value="add"/>
+        <button class="closeWin">close</button>
     </form>
 </div>
 

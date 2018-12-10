@@ -3,6 +3,12 @@ $("#btn").click(function () {
     $('div#modalWindow').css('display', 'block');
 });
 
+$('.closeWin').click(function(){
+   $('div#modalWindow').css('display', 'none'); 
+   return false;
+});
+
+
 $('#add_article_form').on('submit', function(e){
     e.preventDefault();
     var $that = $(this),

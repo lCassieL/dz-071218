@@ -14,10 +14,10 @@ class ApiModel extends Model {
         }
     }
     
-    public function addArticle($name, $text, $date_of_changes, $picture){
+    public function addArticle($name, $text, $picture){
         if($this->db->connect_errno===0){
-            $query='INSERT INTO articles (name, text, date_of_changes, picture) 
-            values ("'.$name.'", "'.$text.'", "'.$date_of_changes.'", "'.$picture.'")';
+            $query='INSERT INTO articles (name, text, picture) 
+            values ("'.$name.'", "'.$text.'", "'.$picture.'")';
             $this->db->query($query);
         }
     }

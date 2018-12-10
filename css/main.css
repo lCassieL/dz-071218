@@ -1,11 +1,11 @@
 #modalWindow{
     display: none;
     min-height: 200px;
-    width: 500px;
+    width: 800px;
     position: fixed;
     z-index: 10;
     border: 1px solid black;
-    top: 100px;
+    top: 50px;
     left: 100px;
     background-color: white;
     box-shadow: black 5px 5px 30px 2px;

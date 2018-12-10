@@ -3,9 +3,8 @@ function showArticles(articles) {
     $(articles).each(function (i, article) {
         $('#articles ul').append(
             '<li>' + 
-            article.name + ' ' + 
-            article.text + ' ' + 
-            article.date_of_changes + ' ' + 
+            '<div>' + article.name + '</div>' + 
+            '<div>' + article.text + '</div>' + 
             '<div><img src="images/'+article.picture + '" width="400" height="200"></div>' +
             '<form class="del" method="post"><input type="submit" value="del"/><input type="hidden" value="' + 
             article.id + '"></form>' +
