@@ -47,6 +47,16 @@ function showArticles(articles) {
         var id = $(this).find('input[type="hidden"]').val();
         $("#edit_article_form").append('<input type="hidden" value="' + 
         id + '">');
+        var xhr = new XMLHttpRequest();
+	var body = 'id=' + encodeURIComponent(id);
+        xhr.open("POST", location.origin + '/api/id', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                getArticles();
+            }
+        };
+        xhr.send(body);
         $('div#modalWindowEdit').css('display', 'block');
         return false;
     });
