@@ -18,7 +18,7 @@ class ApiController extends Controller
        $date_of_change = time();
        move_uploaded_file($_FILES['avatar']['tmp_name'], 'images/'.$_FILES['avatar']['name']);
        $picture = $_FILES['avatar']['name'];
-       if ($name !== null || $text !== null || $picture !== NULL) {
+       if ($name != null && $text != null) {
            $this->model = new ApiModel();
            $this->model->addArticle($name, $text, $picture, $date_of_change);
 	   }
@@ -26,7 +26,7 @@ class ApiController extends Controller
     }
 
     public function action_delete(){
-	$id = filter_input(INPUT_POST, 'id');
+    $id = filter_input(INPUT_POST, 'id');
 	if(!is_null($id)){
 	    $this->model = new ApiModel();
             $this->model->deleteArticle($id);

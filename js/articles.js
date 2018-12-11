@@ -5,6 +5,7 @@ $("#btn").click(function () {
 
 $('.closeWin').click(function(){
    $('div#modalWindow').css('display', 'none'); 
+   $('div#modalWindowEdit').css('display', 'none'); 
    return false;
 });
 
