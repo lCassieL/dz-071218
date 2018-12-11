@@ -13,6 +13,18 @@ class ApiModel extends Model {
             }
         }
     }
+
+    public function getArticle($id){
+        if($this->db->connect_errno===0){
+            $query='select * from articles where id='.$id;
+            $res = $this->db->query($query);
+            if($res){
+               return $res->fetch_all(MYSQLI_ASSOC);
+            } else{
+                return false;
+            }
+        }
+    }
     
     public function addArticle($name, $text, $picture, $date_of_change){
         if($this->db->connect_errno===0){

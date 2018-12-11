@@ -52,8 +52,9 @@ function showArticles(articles) {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 var json = xhr.responseText;
                 var article = JSON.parse(json);
-                $('#edit_article_form input[name="name"]').val(article.name);
-                $('#edit_article_form input[name="name"]').val(article.name);
+                console.log(json);
+                $('#edit_article_form input[name="name"]').val(article[0].name);
+                $('#edit_article_form textarea[name="text"]').val(article[0].text);
 
             }
         };
