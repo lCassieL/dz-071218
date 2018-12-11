@@ -28,7 +28,8 @@ class ApiController extends Controller
         $id = filter_input(INPUT_POST, 'id');
         $name = filter_input(INPUT_POST, 'name');
         $text = filter_input(INPUT_POST, 'text');
-        if($_FILES['avatar'] != null){
+        $date_of_change = time();
+        if($_FILES['avatar']['name'] != null){
           move_uploaded_file($_FILES['avatar']['tmp_name'], 'images/'.$_FILES['avatar']['name']);
           $picture = $_FILES['avatar']['name'];
         }

@@ -43,8 +43,13 @@ class ApiModel extends Model {
 
     public function editArticle($id, $name, $text, $date_of_changes, $picture){
         if($this->db->connect_errno===0){
+            if($picture != null){
             $query = "UPDATE articles SET name = '".$name."', text = '".$text."', date_of_changes = '".$date_of_changes."', picture = '".$picture."' WHERE id = ".$id;
             $this->db->query($query);
+            } else {
+                $query = "UPDATE articles SET name = '".$name."', text = '".$text."', date_of_changes = '".$date_of_changes."' WHERE id = ".$id;
+            $this->db->query($query);
+            }
         }
     }
 }
