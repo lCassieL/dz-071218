@@ -33,17 +33,19 @@ class ApiController extends Controller
           move_uploaded_file($_FILES['avatar']['tmp_name'], 'images/'.$_FILES['avatar']['name']);
           $picture = $_FILES['avatar']['name'];
         }
-        if ($name !== null || $text !== null) {
+        if ($name !== null && $text !== null) {
             $this->model = new ApiModel();
-            $this->model->editArticle($id, $name, $text, $date_of_changes, $picture);
+            $this->model->editArticle($id, $name, $text, $date_of_change, $picture);
         }
     }
 
     public function action_delete(){
         $id = filter_input(INPUT_POST, 'id');
-	      if(!is_null($id)){
-	          $this->model = new ApiModel();
-            $this->model->deleteArticle($id);
+	      if(!is_null($id)){ 
+              $this->model = new ApiModel();
+              $article_obj = $this->model->getArticle($id);
+              unlink('images/'.$article_obj[0]['picture']);
+              $this->model->deleteArticle($id);
 	      }
     }
 

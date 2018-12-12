@@ -42,7 +42,7 @@ function showArticles(articles) {
     $("#list .edit").submit(function () {
         $('#edit_article_form input[type="hidden"]').remove();
         var id = $(this).find('input[type="hidden"]').val();
-        $("#edit_article_form").append('<input type="hidden" value="' + 
+        $("#edit_article_form").append('<input type="hidden" name="id" value="' + 
         id + '">');
         var xhr = new XMLHttpRequest();
 	    var body = 'id=' + encodeURIComponent(id);
@@ -52,14 +52,13 @@ function showArticles(articles) {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 var json = xhr.responseText;
                 var article = JSON.parse(json);
-                console.log(json);
                 $('#edit_article_form input[name="name"]').val(article[0].name);
                 $('#edit_article_form textarea[name="text"]').val(article[0].text);
+                $('div#modalWindowEdit').css('display', 'block');
 
             }
         };
         xhr.send(body);
-        $('div#modalWindowEdit').css('display', 'block');
         return false;
     });
 
